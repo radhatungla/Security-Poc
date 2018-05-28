@@ -1,0 +1,89 @@
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="javascript:void(0)" (click)="reloadWindow()" >LOGO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto" style="display:none">
+          <li class="nav-item active">
+            <a class="nav-link" href="javascript:void(0)" (click)="this.activePath='dashboard';this.searchActive=false">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="this.activePath='alerts';this.searchActive=false">Alerts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Live Logs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Information</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0" style="display:inline">
+          <!-- <input class="form-control" type="text" placeholder="Search"> -->
+           
+            <span style="width:200px;"><input id="search_text_input1"
+            name="search_text_input1" type="text" (keyup)="eventHandler($event)"></span>
+            
+	<input type="text" value="2014/03/15 05:06" id="datetimepicker" style="height: 30px;"/>
+            <span _ngcontent-c1="" class="btn btn-primary" type="search" style="
+    height: 36px;
+    line-height: 19px;
+"><i class="fa fa-search" aria-hidden="true"></i></span>
+<span _ngcontent-c1="" class="btn btn-primary" type="search" style="
+height: 36px;
+line-height: 19px;display:none;
+">Logout</span>
+        </form>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand">
+          
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)" (click)="this.activePath='badge';this.searchActive=false">Badge</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="javascript:void(0)" (click)="this.activePath='vpn';this.searchActive=false">Vpn <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+         
+        </div>
+      </nav>
+<div class="container-fluid">
+  <!-- <div class="col-lg-12">
+    <span *ngFor="let hero of this.graphResults;let i = index">
+      <span>{{testing(i)}}</span>
+      <app-vpn-day-data *ngIf="this.hero[0].hasOwnProperty('bucket_day')">{{testing("bucket_day",i)}}</app-vpn-day-data>
+      <app-vpn-weekday *ngIf="this.hero[0].hasOwnProperty('bucket_weekday')">{{testing("bucket_weekday",i)}}</app-vpn-weekday>
+
+  <app-vpn-hours-data *ngIf="this.hero[0].hasOwnProperty('bucket_hour')">{{testing("bucket_hour",i)}}</app-vpn-hours-data> 
+    </span>
+    
+      </div> -->
+      <div *ngIf="this.result">Loading....</div>  
+      <div *ngIf="this.displayName!==''&&this.graphResults.length!=0" >Search Result for::{{this.displayName}}
+        </div>
+        
+      <div class="col-lg-12" [hidden]="this.activePath!='badge'">
+        <app-global-badgedata></app-global-badgedata>
+       <app-global-badgeprobability-data></app-global-badgeprobability-data>
+       <!-- <app-badge-pie-chart></app-badge-pie-chart> -->
+       <!-- <app-badgeheatmap></app-badgeheatmap> -->
+          </div>
+          <div class="col-lg-12" [hidden]="this.activePath!='vpn'">
+          <app-dashbord></app-dashbord>
+          <app-probability-graph></app-probability-graph>
+          <!-- <app-vpnheatmap></app-vpnheatmap> -->
+        </div>
+  <!-- <div class="col-lg-12" *ngIf="this.activePath=='alerts'&& this.searchActive==false">
+    <app-alerts></app-alerts>
+    
+      </div> -->
+      <!-- <div class="col-lg-12" >
+        <div id="chart"></div>
+      </div> -->
+</div>

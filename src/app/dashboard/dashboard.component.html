@@ -1,0 +1,102 @@
+
+<!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  
+    <ul class="nav navbar-nav">
+
+      <li><a routerLink="Vpn/vpndata">VPN</a></li>
+      <li><a routerLink="Vpn/badgedata">Badge</a></li>
+     
+    </ul>
+    <span style="float: right;padding-top:15px"> <a (click)="logout()" href="#">Logout</a></span>
+  </div>
+</nav> -->
+
+<div class="user_wrapper">
+    <div class="heading_wrapper">
+        <div class="search-control" style="align:center;margin-top: 
+        10px;width: 406px;margin-bottom: 25px;margin-left: 120px;height: 64px;"> 
+          <form class="search-form">
+        <label>Search:</label><input id="search_text_input" 
+        name="search_text_input" type="text" (keyup)="eventHandler($event)"> <button class="btn btn-primary" 
+        type="search" onclick="javascript:searchUser();">Search</button> 
+        </form></div>
+        </div>
+
+        <div id="user-profile-2" class="user-profile">
+            <div class="tabbable">
+                <ul class="nav nav-tabs padding-18">
+                    <li class="active">
+                        <a routerLink="profile" >
+                          <i class="green ace-icon fa fa-user bigger-120"></i>
+                          Profile
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a data-toggle="tab" href="foo#feed">
+                          <i class="orange ace-icon fa fa-rss bigger-120"></i>
+                          Activity Feed
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="laptop">
+                          <i class="pink ace-icon fa fa-laptop bigger-120"></i>
+                          Laptop / Desktop
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a routerLink="teamData" >
+                          <i class="blue ace-icon fa fa-users bigger-120"></i>
+                          Team
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a data-toggle="tab" href="foo#pictures">
+                          <i class="red ace-icon fa fa-bar-chart bigger-120"></i>
+                          Trends
+                        </a>
+                      </li>
+              
+              
+                      <li>
+                        <a routerLink="Vpn/vpndata">
+                          <i class="pink ace-icon fa fa-cloud bigger-120"></i>
+                          VPN
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a  routerLink="Badge/badgedata">
+                          <i class="red2 ace-icon fa fa-building-o bigger-120"></i>
+                          Badges
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a data-toggle="tab" href="foo#pictures">
+                          <i class="blue ace-icon fa fa-book bigger-120"></i>
+                          Catalogs
+                        </a>
+                      </li>
+              
+                      <li>
+                        <a data-toggle="tab" href="foo#pictures">
+                          <i class="brown ace-icon fa fa-bell bigger-120"></i>
+                          Incidents
+                        </a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="foo#pictures">
+                          <i class="purple ace-icon fa fa-paperclip bigger-120"></i>
+                          Custom Notes
+                        </a>
+                      </li>
+                    </ul>
+              </div>
+        </div>
+  </div>
+  <router-outlet></router-outlet>
+

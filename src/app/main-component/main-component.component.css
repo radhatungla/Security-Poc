@@ -1,0 +1,10 @@
+#search_text_input{
+    width:200px;
+    height: 30px;
+}
+.k-widget.k-autocomplete.k-header.form-control.k-autocomplete-clearable.k-state-default{
+    width:200px;
+}
+.k-link.k-link-date,.k-link.k-link-time{
+    display:none !important;
+}

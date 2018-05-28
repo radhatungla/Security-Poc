@@ -1,0 +1,90 @@
+<div class="container-fluid" style="margin-top: 10px;">
+<div class="col-md-4">
+    Bayesean Select Date  <input id="datetimepicker" />
+</div>
+<div class="col-md-4">
+       <button class="btn btn-primary" (click)="calculate()">Calculate</button>
+</div>
+</div>
+<div class="container-fluid" style="margin-top: 10px;">
+    <div class="row content">
+        <div class="col-sm-12">
+            
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                        <div class="well" *ngIf="this.data">
+                                <h4>Bayesean Hour Parameter</h4>
+                                <div>
+                                <div>UserAllTime::{{this.dateData.user_badgecount_alltime}}</div>
+                                <div>globalAllTime:: {{this.dateData.global_alltime_badgecount}}</div>
+                                <div>selected Hour::{{this.startTime}}</div>
+                               
+                                <div><div *ngFor="let user of this.dateData['global_badgecount_by_hour']">
+                                        <div  *ngIf="user.bucket_hour==this.startTime">calculated probability ::{{(user.bucket_hour/user.count)*100}}</div>
+                                   <span *ngIf="user.bucket_hour==this.startTime">lookup_selected_count:: {{user.bucket_hour}} </span> 
+                                   <span *ngIf="user.bucket_hour==this.startTime">lookup_global_count_at_that_bucket::{{user.count}} </span> 
+                                </div></div>
+                            </div>
+                          </div>   
+                    <div class="well">
+                            <h4>Hour Data</h4>
+                           
+                       <app-vpn-hours-data></app-vpn-hours-data> 
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                        <div class="well" *ngIf="this.data">
+                                <h4>Bayesean Day Parameter</h4>
+                                <div>
+                                        <div>UserAllTime::{{this.dateData.user_badgecount_alltime}}</div>
+                                        <div>globalAllTime:: {{this.dateData.global_alltime_badgecount}}</div>
+                                        <div>selected Day::{{this.startDate}}</div>
+                                        <div><div *ngFor="let user of this.dateData['global_badgecount_by_day']">
+                                                <div  *ngIf="user.bucket_day==this.startDate">calculated probability ::{{(user.bucket_day/user.count)*100}}</div>
+                                           <span *ngIf="user.bucket_day==this.startDate">lookup_selected_count:: {{user.bucket_day}} </span> 
+                                           <span *ngIf="user.bucket_day==this.startDate">lookup_global_count_at_that_bucket::{{user.count}} </span> 
+                                        </div></div>
+                                    </div>
+                            </div>
+                    <div class="well">
+                        <h4>Day Data</h4>
+                       
+                      <app-vpn-day-data></app-vpn-day-data>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                        <div class="well" *ngIf="this.data">
+                                <h4>Bayesean Week Parameter</h4>
+                                <div>
+                                        <div>UserAllTime::{{this.dateData.user_badgecount_alltime}}</div>
+                                        <div>globalAllTime:: {{this.dateData.global_alltime_badgecount}}</div>
+                                        <div>selected Day::{{this.day}}</div>
+                                        <div>calculated probability ::---</div>
+                                        <div><div *ngFor="let user of this.dateData['global_badgecount_by_weekday']">
+                                                <div  *ngIf="user.bucket_weekday==this.day">calculated probability ::---</div>
+                                           <span *ngIf="user.bucket_weekday==this.day">lookup_selected_count:: {{user.bucket_weekday}} </span> 
+                                           <span *ngIf="user.bucket_weekday==this.day">lookup_global_count_at_that_bucket::{{user.count}} </span> 
+                                        </div></div>
+                                    </div>
+                            </div>
+                    <div class="well">
+                        <h4>Week Data</h4>
+                     
+                      <app-vpn-weekday></app-vpn-weekday>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="well">
+                        <h4>Heat Map</h4>
+                      <app-heat-map></app-heat-map>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
