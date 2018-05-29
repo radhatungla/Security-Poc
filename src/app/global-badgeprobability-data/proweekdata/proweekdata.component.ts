@@ -40,7 +40,7 @@ export class ProweekdataComponent implements OnInit {
       this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
       this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
      
-        this.x.domain(vpnObj.map((d) => d.bucket_weekday));
+        this.x.domain(vpnObj.map((d) => d.bucket_week));
       this.y.domain([0, d3Array.max(vpnObj, (d) => d.count/this.global_alltime_badgecount)]);
       //this.drawAxis();
   
@@ -64,7 +64,7 @@ export class ProweekdataComponent implements OnInit {
         .data(vpnObj)
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", (d) => this.x(d.bucket_weekday) )
+        .attr("x", (d) => this.x(d.bucket_week) )
         .attr("y", (d) => this.y(d.count) )
         .attr("width", this.x.bandwidth())
         .attr("height", (d) => this.height - this.y(d.count) );

@@ -22,14 +22,23 @@ export class BadgePieChartComponent implements OnInit {
   private pie: any;
   private color: any;
   private svg: any;
-
+  subscription: any;
+  public global:boolean=true;
   constructor(private dataService: VpnDataService,  private container: ElementRef) {
     this.svg = d3.select(this.container.nativeElement).select("svg");
     this.width = 300 - this.margin.left - this.margin.right;
     this.height = 300 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
+    this.subscription = this.dataService.getHeading().subscribe(message => {
+      this.global = message.text; 
+    });
   }
-
+  
+    // constructor(private _VpnDataService:VpnDataService) { 
+    //   this.subscription = this._VpnDataService.getHeading().subscribe(message => {
+    //     this.global = message.text; 
+    //   });
+    //   }
   ngOnInit() {
     this.initSvg();
     this.drawPie();
@@ -37,7 +46,7 @@ export class BadgePieChartComponent implements OnInit {
 
   private initSvg() {
     this.color = d3Scale.scaleOrdinal()
-      .range(["#ff6358", "#ff6358", "#000", "#fff", "#cccc", "#ddd", "#ff6358"]);
+      .range(["#ff6358", "#ff6358", "#000", "steelblue", "#cccc", "#ddd", "#ff6358"]);
     this.arc = d3Shape.arc()
       .outerRadius(this.radius - 10)
       .innerRadius(0);
